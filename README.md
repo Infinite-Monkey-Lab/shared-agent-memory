@@ -23,7 +23,7 @@ Shared Agent Memory is a local MCP server that lets multiple AI clients share pr
 
 | 项目信息 | 说明 |
 |---|---|
-| 当前状态 | Prototype（原型，2026-10-29）：本地 MCP 核心可用，插件安装流程仍待验证 |
+| 当前状态 | 开发维护中 · v0.2.0，支持通过本地 MCP 接入使用 |
 | 维护者 | [@Piao-2024](https://github.com/Piao-2024) |
 | 主要用途 | 开发者工具与 Agent 记忆基础设施；主要分类为“研究工具与基础设施” |
 | 许可证 | [MIT](LICENSE)；第三方依赖见[来源与许可](THIRD_PARTY_NOTICES.md) |
@@ -71,7 +71,7 @@ cd shared-agent-memory
 npm ci
 ```
 
-如果仓库为私有，你的 GitHub 账号需要有访问权限。已经下载过的用户直接进入原目录，不需要再次克隆。
+已经下载过的用户直接进入原目录，不需要再次克隆。
 
 安装目录需要长期保留：客户端会从这里启动服务，移动或删除目录后需要更新客户端配置。
 
