@@ -1,8 +1,6 @@
-# Shared Agent Memory
+![Shared Agent Memory：像素风标题，多个 AI 客户端通过 MCP 共用本地 SQLite 记忆](docs/assets/banner.svg)
 
 **让不同的 AI 助手，接着记得你的偏好。**
-
-![Shared Agent Memory：多个 AI 客户端通过 MCP 共用本地 SQLite 记忆](docs/assets/banner.svg)
 
 [![Version](https://img.shields.io/badge/version-0.2.0-4C9AFF?style=flat-square)](package.json)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D24-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)](#1-准备环境)
