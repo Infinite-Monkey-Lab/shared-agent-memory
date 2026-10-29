@@ -1,12 +1,43 @@
 # Shared Agent Memory
 
-让 Codex、Claude Code 和其他支持 MCP 的 AI 客户端，在**同一台电脑上共用一份长期记忆**。
+**让不同的 AI 助手，接着记得你的偏好。**
+
+![Shared Agent Memory：多个 AI 客户端通过 MCP 共用本地 SQLite 记忆](docs/assets/banner.svg)
+
+[![Version](https://img.shields.io/badge/version-0.2.0-4C9AFF?style=flat-square)](package.json)
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D24-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)](#1-准备环境)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ESM-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](package.json)
+[![SQLite](https://img.shields.io/badge/SQLite-FTS5-003B57?style=flat-square&logo=sqlite&logoColor=white)](v2/store.mjs)
+[![MCP](https://img.shields.io/badge/MCP-stdio-8B5CF6?style=flat-square)](#3-连接你的-ai-客户端)
+
+[![Codex](https://img.shields.io/badge/Client-Codex-111827?style=flat-square)](#codex)
+[![Claude Code](https://img.shields.io/badge/Client-Claude_Code-D97757?style=flat-square)](#claude-code)
+[![macOS](https://img.shields.io/badge/macOS-tested-111827?style=flat-square&logo=apple&logoColor=white)](#适用平台与客户端)
+[![Platform](https://img.shields.io/badge/Platform-Local_Desktop-0F766E?style=flat-square)](#适用平台与客户端)
+[![License](https://img.shields.io/badge/License-Pending-64748B?style=flat-square)](#许可证)
+
+[快速开始](#快速开始) · [日常怎么用](#日常怎么用) · [适用平台](#适用平台与客户端) · [查看记忆](#记忆存在哪里怎么阅读) · [常见问题](#常见问题) · [许可证](#许可证)
+
+让 Codex、Claude Code 和其他支持 MCP 的 AI 客户端，在**同一台电脑上共用一份长期记忆**。使用 Node.js + SQLite，支持中文关键词检索、项目范围、版本历史和 Markdown 阅读副本。
 
 例如，你在 Claude Code 中说“请记住，我习惯用中文回答”，它保存后，你可以在新的 Codex 会话中让 Codex 查询并沿用这个偏好。项目的技术选择、已经确认的约定，也可以这样保存和查找。
 
 它是一个在本机运行的 MCP 服务。MCP 可以理解为 AI 调用外部工具的接口：你负责连接一次，之后通过对话让 AI 保存、查询或修改记忆。
 
 **目前推荐先按下面的 MCP 方式使用。** 仓库也提供 Codex 插件清单，但从 GitHub 安装插件、自动准备依赖并启动的完整流程尚未验证。
+
+## 适用平台与客户端
+
+| 环境 | 当前情况 |
+|---|---|
+| macOS 本机 | 已在本机使用，适合按本文步骤配置 |
+| Linux 本机 | 可参考本文终端命令；尚未进行独立平台验证 |
+| Windows | 尚未验证，本文不提供 Windows 安装步骤 |
+| Codex、Claude Code、rcode-cli | 通过各自的本地 stdio MCP 配置接入 |
+| 其他 AI 客户端 | 需要支持启动本地 stdio MCP 服务；具体兼容性需验证 |
+| 云端或移动端 | 本文的本地配置不代表这些环境可以直接使用 |
+
+多个客户端需要能访问**同一份本地数据库**。项目不需要独立数据库服务器，也不提供跨设备自动同步。
 
 ## 快速开始
 
@@ -243,3 +274,7 @@ npm run backup -- "$HOME/shared-memory-backups/memory-$(date +%Y%m%d-%H%M%S).sql
 三个路径必须互不相同。做全新隔离测试时请同时指定三个路径，避免导入默认目录里的旧记忆。只设置 `MEMORY_FILE_PATH` 时，数据库路径会从该文件名推导；只更改数据库路径时，导出默认跟随数据库目录，旧 JSONL 来源仍可能是默认目录。
 
 自定义目录后，维护命令也需要使用同样的环境变量，否则会操作默认库。仓库只保存程序与虚构的测试数据，不应提交真实数据库、JSONL、Markdown 阅读副本、备份或客户端凭据。
+
+## 许可证
+
+许可证尚待确定，当前未授予开源许可。第三方依赖遵循各自的许可证；记忆数据库、备份和个人配置也不属于仓库分发内容。
