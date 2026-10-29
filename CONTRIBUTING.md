@@ -1,6 +1,6 @@
 # 贡献指南
 
-欢迎参与文档、测试、客户端接入和代码改进。维护者为 [@Piao-2024](https://github.com/Piao-2024)。仓库当前为私有，参与者需要相应访问权限；本指南不代表仓库已经加入某个组织。
+欢迎参与文档、测试、客户端接入和代码改进。维护者为 [@Piao-2024](https://github.com/Piao-2024)。仓库当前为私有，参与者需要相应访问权限；项目由 [Infinite Monkey Lab](https://github.com/Infinite-Monkey-Lab) 托管，协作同时遵循[组织贡献指南](https://github.com/Infinite-Monkey-Lab/.github/blob/main/CONTRIBUTING.md)。
 
 ## 选择任务
 

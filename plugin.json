@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "description": "Local, shared, versioned memory for AI agents via MCP.",
   "author": { "name": "Piao-2024" },
-  "repository": "https://github.com/Piao-2024/shared-agent-memory",
+  "repository": "https://github.com/Infinite-Monkey-Lab/shared-agent-memory",
   "keywords": ["mcp", "memory", "sqlite", "codex", "claude-code"],
   "extensions": {
     "com.openai": {
