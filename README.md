@@ -3,7 +3,7 @@
 **让不同的 AI 助手，接着记得你的偏好。**
 
 [![Version](https://img.shields.io/badge/version-0.2.0-4C9AFF?style=flat-square)](package.json)
-[![CI](https://github.com/Piao-2024/shared-agent-memory/actions/workflows/ci.yml/badge.svg)](https://github.com/Piao-2024/shared-agent-memory/actions/workflows/ci.yml)
+[![CI](https://github.com/Infinite-Monkey-Lab/shared-agent-memory/actions/workflows/ci.yml/badge.svg)](https://github.com/Infinite-Monkey-Lab/shared-agent-memory/actions/workflows/ci.yml)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D24-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)](#1-准备环境)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ESM-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](package.json)
 [![SQLite](https://img.shields.io/badge/SQLite-FTS5-003B57?style=flat-square&logo=sqlite&logoColor=white)](v2/store.mjs)
@@ -25,9 +25,9 @@ Shared Agent Memory is a local MCP server that lets multiple AI clients share pr
 |---|---|
 | 当前状态 | Prototype（原型，2026-10-29）：本地 MCP 核心可用，插件安装流程仍待验证 |
 | 维护者 | [@Piao-2024](https://github.com/Piao-2024) |
-| 主要用途 | 开发者工具与 Agent 记忆基础设施；拟归入“研究工具与基础设施” |
+| 主要用途 | 开发者工具与 Agent 记忆基础设施；主要分类为“研究工具与基础设施” |
 | 许可证 | [MIT](LICENSE)；第三方依赖见[来源与许可](THIRD_PARTY_NOTICES.md) |
-| 参与和反馈 | [贡献指南](CONTRIBUTING.md) · [Issues](https://github.com/Piao-2024/shared-agent-memory/issues) |
+| 参与和反馈 | [贡献指南](CONTRIBUTING.md) · [Issues](https://github.com/Infinite-Monkey-Lab/shared-agent-memory/issues) |
 
 例如，你在 Claude Code 中说“请记住，我习惯用中文回答”，它保存后，你可以在新的 Codex 会话中让 Codex 查询并沿用这个偏好。项目的技术选择、已经确认的约定，也可以这样保存和查找。
 
@@ -40,7 +40,7 @@ Shared Agent Memory is a local MCP server that lets multiple AI clients share pr
 | 环境 | 当前情况 |
 |---|---|
 | macOS 本机 | 已在本机使用，适合按本文步骤配置 |
-| Linux 本机 | 可参考本文终端命令；尚未进行独立平台验证 |
+| Linux 本机 | Ubuntu CI 核心测试已通过；真实客户端安装仍待独立验证 |
 | Windows | 尚未验证，本文不提供 Windows 安装步骤 |
 | Codex、Claude Code、rcode-cli | 通过各自的本地 stdio MCP 配置接入 |
 | 其他 AI 客户端 | 需要支持启动本地 stdio MCP 服务；具体兼容性需验证 |
@@ -66,7 +66,7 @@ npm --version
 ### 2. 下载并安装
 
 ```sh
-git clone https://github.com/Piao-2024/shared-agent-memory.git
+git clone https://github.com/Infinite-Monkey-Lab/shared-agent-memory.git
 cd shared-agent-memory
 npm ci
 ```
@@ -236,9 +236,9 @@ npm run backup -- "$HOME/shared-memory-backups/memory-$(date +%Y%m%d-%H%M%S).sql
 
 ## 开发与协作
 
-欢迎改进文档、补充平台验证、报告问题或完善客户端接入。首次参与可以从复核一条安装命令、用虚构数据验证跨客户端查询开始，具体流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。当前仓库为私有，Issue、PR 和代码访问需要仓库权限。
+欢迎改进文档、补充平台验证、报告问题或完善客户端接入。首次参与可以从复核一条安装命令、用虚构数据验证跨客户端查询开始，具体流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。仓库已公开，欢迎通过 Issues 反馈问题或通过 PR 参与改进。
 
-[GitHub Actions](.github/workflows/ci.yml) 在推送和 PR 时分别使用 Ubuntu、macOS 与 Node.js 24 执行 `npm ci` 和 `npm test`，并在 Ubuntu 检查高危及以上的依赖漏洞。测试使用临时目录与虚构数据，不读取正式记忆库。这些检查不等于完整客户端安装或插件安装验证；首次远程结果以 Actions 页面为准。
+[GitHub Actions](.github/workflows/ci.yml) 在推送和 PR 时分别使用 Ubuntu、macOS 与 Node.js 24 执行 `npm ci` 和 `npm test`，并在 Ubuntu 检查高危及以上的依赖漏洞。测试使用临时目录与虚构数据，不读取正式记忆库。这些检查不等于完整客户端安装或插件安装验证；各次远程结果以 Actions 页面为准。
 
 [Dependabot 配置](.github/dependabot.yml) 每月检查 npm 依赖和 GitHub Actions 更新。分支保护、漏洞提醒及其他仓库安全功能属于 GitHub 后台设置，提交配置文件并不会自动开启它们。
 
