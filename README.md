@@ -14,7 +14,7 @@
 [![Claude Code](https://img.shields.io/badge/Client-Claude_Code-D97757?style=flat-square)](#claude-code)
 [![macOS](https://img.shields.io/badge/macOS-tested-111827?style=flat-square&logo=apple&logoColor=white)](#适用平台与客户端)
 [![Platform](https://img.shields.io/badge/Platform-Local_Desktop-0F766E?style=flat-square)](#适用平台与客户端)
-[![License](https://img.shields.io/badge/License-Pending-64748B?style=flat-square)](#许可证)
+[![License: MIT](https://img.shields.io/badge/License-MIT-24292F?style=flat-square)](LICENSE)
 
 [快速开始](#快速开始) · [日常怎么用](#日常怎么用) · [适用平台](#适用平台与客户端) · [查看记忆](#记忆存在哪里怎么阅读) · [常见问题](#常见问题) · [许可证](#许可证)
 
@@ -277,4 +277,6 @@ npm run backup -- "$HOME/shared-memory-backups/memory-$(date +%Y%m%d-%H%M%S).sql
 
 ## 许可证
 
-许可证尚待确定，当前未授予开源许可。第三方依赖遵循各自的许可证；记忆数据库、备份和个人配置也不属于仓库分发内容。
+本项目的源码、文档与横幅采用 [MIT 许可证](LICENSE)。你可以使用、修改和分发，也可以用于商业用途；分发时需保留版权声明和许可文本。软件按原样提供，不附带担保。
+
+第三方依赖遵循各自的许可证；记忆数据库、备份和个人配置不属于仓库分发内容。
