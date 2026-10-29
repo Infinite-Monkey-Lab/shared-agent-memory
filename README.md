@@ -236,7 +236,7 @@ npm run backup -- "$HOME/shared-memory-backups/memory-$(date +%Y%m%d-%H%M%S).sql
 
 ## 开发与协作
 
-欢迎改进文档、补充平台验证、报告问题或完善客户端接入。首次参与可以从复核一条安装命令、用虚构数据验证跨客户端查询开始，具体流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。当前仓库为私有，Issue、PR 和代码访问需要仓库权限。
+欢迎改进文档、补充平台验证、报告问题或完善客户端接入。首次参与可以从复核一条安装命令、用虚构数据验证跨客户端查询开始，具体流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。仓库已公开，欢迎通过 Issues 反馈问题或通过 PR 参与改进。
 
 [GitHub Actions](.github/workflows/ci.yml) 在推送和 PR 时分别使用 Ubuntu、macOS 与 Node.js 24 执行 `npm ci` 和 `npm test`，并在 Ubuntu 检查高危及以上的依赖漏洞。测试使用临时目录与虚构数据，不读取正式记忆库。这些检查不等于完整客户端安装或插件安装验证；各次远程结果以 Actions 页面为准。
 
