@@ -19,9 +19,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     env:
-      MEMORY_DB_PATH: ${{ runner.temp }}/shared-memory-ci/memory.sqlite3
-      MEMORY_FILE_PATH: ${{ runner.temp }}/shared-memory-ci/memory.jsonl
-      MEMORY_EXPORT_PATH: ${{ runner.temp }}/shared-memory-ci/exports/memory.md
+      MEMORY_DB_PATH: ${{ github.workspace }}/.local-memory-test/memory.sqlite3
+      MEMORY_FILE_PATH: ${{ github.workspace }}/.local-memory-test/memory.jsonl
+      MEMORY_EXPORT_PATH: ${{ github.workspace }}/.local-memory-test/exports/memory.md
     steps:
       - name: Check out source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
