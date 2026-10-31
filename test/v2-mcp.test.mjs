@@ -39,7 +39,7 @@ test('MCP native writes are annotated as mutations and interoperable with old to
   const md = await readFile(path.join(f.dir, 'exports/memory.md'), 'utf8');
   assert.match(md, /历史/);
   assert.match(md, /并发记录 23/);
-  assert.equal((await stat(path.join(f.dir, 'memory.jsonl.sqlite3'))).mode & 0o777, 0o600);
+  if (process.platform !== 'win32') assert.equal((await stat(path.join(f.dir, 'memory.jsonl.sqlite3'))).mode & 0o777, 0o600);
 });
 
 test('legacy import keeps the original intact, accepts late writes and does not hide failure as empty', async t => {

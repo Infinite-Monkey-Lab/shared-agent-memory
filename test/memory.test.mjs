@@ -21,7 +21,7 @@ test('export preserves UTF-8 observations and relationships; corrupt input leave
   assert.match(markdown, /用示例工具查看文档。/);
   assert.match(markdown, /第二行\n  后续内容/);
   assert.match(markdown, /user:example.*works\\?_on.*project:alpha/);
-  assert.equal((await stat(output)).mode & 0o777, 0o600);
+  if (process.platform !== 'win32') assert.equal((await stat(output)).mode & 0o777, 0o600);
   await writeFile(memory, '{broken JSON\n');
   await assert.rejects(exportMemory(memory, output));
   assert.equal(await readFile(output, 'utf8'), markdown);
@@ -51,7 +51,7 @@ test('three live MCP processes see each other’s writes without loss and refres
   }
   assert.match(markdown, /使用 ExampleApp。/);
   assert.equal((markdown.match(/^## project:item-/gm) ?? []).length, 24);
-  assert.equal((await stat(`${memory}.sqlite3`)).mode & 0o777, 0o600);
+  if (process.platform !== 'win32') assert.equal((await stat(`${memory}.sqlite3`)).mode & 0o777, 0o600);
 });
 
 test('test clients never overwrite an export path inherited from the caller environment', async () => {

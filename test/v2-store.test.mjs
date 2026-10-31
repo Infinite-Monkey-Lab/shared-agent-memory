@@ -40,6 +40,13 @@ test('correction preserves history, rejects stale writers and survives an idempo
   assert.equal(s.history({ id: old.id }).items[1].status, 'deleted');
 });
 
+test('named project entities normalize consistently on every platform', async t => {
+  const s = await fixture(t);
+  const m = s.remember({ entity_name: 'project:/repo/x:tester', content: '命名式实体回归测试' });
+  assert.equal(m.project, path.normalize('/repo/x'));
+  assert.equal(s.search({ query: '命名式实体回归', project: path.normalize('/repo/x') }).items[0].id, m.id);
+});
+
 test('scope is applied before candidate limiting; global preferences accompany only the selected project', async t => {
   const s = await fixture(t);
   s.remember({ entity_name: 'user:example', content: '全局选择 pnpm' });
@@ -47,7 +54,7 @@ test('scope is applied before candidate limiting; global preferences accompany o
   for (let i = 0; i < 25; i++) s.remember({ entity_name: 'project:/repo/b:packages', content: `选择 npm 开发方案 ${i}` });
   const scoped = s.search({ query: '选择', project: '/repo/a', limit: 20 });
   assert.equal(scoped.items.length, 2);
-  assert.deepEqual(new Set(scoped.items.map(x => x.project)), new Set([null, '/repo/a']));
+  assert.deepEqual(new Set(scoped.items.map(x => x.project)), new Set([null, path.normalize('/repo/a')]));
   assert.equal(s.search({ query: '选择' }).items.length, 1);
   assert.throws(() => s.remember({ entity_name: 'project:/repo/a:packages', content: 'bad', project: '/repo/b' }), /project_mismatch/);
 });
