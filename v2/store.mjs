@@ -22,7 +22,7 @@ export function digest(value) { return createHash('sha256').update(JSON.stringif
 function projectFor(name, explicit) {
   const inferred = /^project:(\/.*):[^:]+$/u.exec(name)?.[1] ?? null;
   if (explicit != null && (typeof explicit !== 'string' || !path.isAbsolute(explicit) || explicit.includes('\0'))) fail('invalid_project');
-  const project = explicit == null ? inferred : path.normalize(explicit);
+  const project = explicit == null ? (inferred == null ? null : path.normalize(inferred)) : path.normalize(explicit);
   if (inferred && project !== path.normalize(inferred)) fail('project_mismatch');
   return project == null ? null : path.normalize(project);
 }

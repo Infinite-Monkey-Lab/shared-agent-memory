@@ -25,7 +25,7 @@ test('maintenance backup is a consistent SQLite snapshot, preserves history and 
     assert.equal(db.prepare('PRAGMA integrity_check').get().integrity_check, 'ok');
     assert.deepEqual(db.prepare('SELECT content,status FROM memories ORDER BY revision').all().map(x => [x.content, x.status]), [['默认 npm', 'superseded'], ['默认 pnpm', 'active']]);
   } finally { db.close(); }
-  assert.equal((await stat(target)).mode & 0o777, 0o600);
+  if (process.platform !== 'win32') assert.equal((await stat(target)).mode & 0o777, 0o600);
   const bytes = await readFile(target);
   await assert.rejects(promisify(execFile)(process.execPath, [command, 'backup', target], options));
   assert.deepEqual(await readFile(target), bytes);
